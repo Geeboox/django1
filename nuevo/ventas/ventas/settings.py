@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ventas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'ventas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hadas',
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'hadas',
 	'USER': 'hadas',
-        'PASSWORD': 'hadas2017',
+    'PASSWORD': 'hadas2017',
 	'HOST': 'localhost',
 	'PORT': 5432,
     }

@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block content  %}
+<a class="myButton" href="{% url 'almacen:almacen_crear' %}">Agregar +</a>
+<br>
+<h3>Lista de Almacenes</h3>
+<table> 
+	<thead>
+	<tr>
+		<td> ID </td>
+		<td> Nombre </td>
+		<td> Dirección </td>
+		<td> Acciones </td>
+	</tr>
+	</thead>	
+	<tbody> 	
+	{% if almacen %}
+	{% for almacen in almacen %} 		
+		<tr>
+			<td>{{ almacen.id }}</td> 			
+			<td>{{ almacen.nombre }}</td>
+			<td>{{ almacen.direccion }}</td> 		
+			<td>
+			<a class="myButton" href="{% url 'almacen:almacen_editar' almacen.id %}">Editar</a>
+			<a class="myButton" href="{% url 'almacen:almacen_eliminar' almacen.id %}">Eliminar</a>
+			</td>
+		</tr>
+	{% endfor %}
+	{% else %} 
+	<h1> No hay registros.</h1>
+	{% endif %}
+	</tbody> 
+</table>
+
+{% endblock %}

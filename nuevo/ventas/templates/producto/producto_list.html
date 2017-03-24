@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}  
+{% block content %} 
+<a class="myButton" href="{% url 'producto:producto_crear' %}">Agregar + </a>
+<br>
+<h3>Lista de Productos</h3>
+<table class="table table-bordered"> 
+	<thead>
+		<tr>
+			<td> ID </td>
+			<td> Fecha </td>
+			<td> Linea </td>
+			<td> Codigo </td>
+			<td> Marca </td>
+			<td> Descripcion </td>
+			<td> Nombre Comercial </td>
+			<td> Imagen </td>
+			<td> Acciones </td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if producto %}
+		{% for producto in producto %}
+		<tr>
+			<td>{{ producto.id }}</td>
+			<td>{{ producto.fecha|date:"SHORT_DATE_FORMAT" }}</td>
+			<td>{{ producto.linea }}</td>
+			<td>{{ producto.codigo }}</td>
+			<td>{{ producto.marca }}</td>
+			<td>{{ producto.descripcion }}</td>
+			<td>{{ producto.n_comercial }}</td>
+			<td>{{ producto.imagen }}</td>
+			<td><a class="myButton" href="{% url 'producto:producto_editar' producto.id %}"
+			>Editar</a>
+			<a class="myButton" href="{% url 'producto:producto_eliminar' producto.id %}"
+			>Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+			<h1> No existen registros. </h1>
+		{% endif %}
+	</tbody>
+</table>
+{% endblock %}
+
+
+
+

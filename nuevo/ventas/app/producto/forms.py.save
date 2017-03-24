@@ -1,0 +1,32 @@
+from django import forms
+from app.producto.models import producto
+
+
+
+class productoForms(forms.ModelForm):
+
+	class Meta:
+		model = producto
+		fields= [
+		'fecha',
+		'linea',
+		'codigo',
+		'marca',
+		'descripcion',
+		'n_comercial',
+		'imagen',
+		]
+
+		labels={
+		'fecha':'Fecha',
+		'linea':'Línea',
+		'codigo':'Código',
+		'marca':'Marca',
+		'descripcion':'Descripción',
+		'n_comercial':'Nombre Comercial',
+		'imagen':'Imagen',
+		}
+
+		widgets = {
+0000		'fecha',                 'linea',                 'codigo',                 'marca',                 'descripcion',                 'n_comercial',                 'imagen',
+		}

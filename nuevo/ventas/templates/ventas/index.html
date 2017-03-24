@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}  
+{% block title %} 
+<h5>Gestión</h5> 
+{% endblock %}  
+{% block content %} 
+<a class="myButton" href="{% url 'producto:producto_listar' %}">Gestión de Productos</a>   
+<a class="myButton" href="{% url 'almacen:almacen_listar' %}">Gestión de Almacenes</a>
+<a class="myButton" >Gestión de Precios</a>
+<a class="myButton" >Gestión de Stock</a>
+{% endblock %}
+

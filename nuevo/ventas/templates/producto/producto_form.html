@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h4> Registrar un Producto </h4>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button class="myButton" type="submit">Guardar</button>
+<a class="myButton" href="{% url 'producto:producto_listar' %}">Cancelar</a>
+</form>
+{% endblock %}
