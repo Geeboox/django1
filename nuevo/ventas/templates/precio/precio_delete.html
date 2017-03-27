@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %} 
+{% block content %}  
+<form method="post">  
+{% csrf_token %}  
+<h3> ¿Desea eliminar el registro del {{ precio.id_precio }}?</h3> 
+<button class="myButton" type="submit">Sí, eliminar</button> 
+<a class="myButton" href="{% url 'precio:precio_listar' %}">Cancelar</a> 
+</form> 
+{% endblock %}

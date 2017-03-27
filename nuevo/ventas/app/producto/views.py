@@ -16,7 +16,7 @@ def producto_view(request):
 		form = productoForm(request.POST)
 		if form.is_valid():
 			form.save()
-		return redirect('producto:index')
+		return redirect('producto:producto_listar')
 	else:
 		form = productoForm()
 	        return render(request,'producto/producto_form.html',{'form':form})
