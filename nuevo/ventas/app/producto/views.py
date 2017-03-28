@@ -17,9 +17,10 @@ def producto_view(request):
 		if form.is_valid():
 			form.save()
 		return redirect('producto:producto_listar')
+
 	else:
 		form = productoForm()
-	        return render(request,'producto/producto_form.html',{'form':form})
+	return render(request,'producto/producto_form.html',{'form':form})
 
 def producto_list(request):
 	p = producto.objects.all()
@@ -33,13 +34,14 @@ def producto_edit(request,id_producto):
 
 	if request.method == 'GET':
 		form = productoForm(instance=p2)
+	
 	else:
 		form=productoForm(instance=p2)
 		if form.is_valid():
 			form.save()
 		return redirect('producto:producto_listar')
-
-  	return render(request,'producto/producto_form.html',{'form':form})
+  		
+	return render(request,'producto/producto_form.html',{'form':form})
 	
 def producto_delete(request,id_producto):
 	

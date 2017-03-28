@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% block content %}
-<a class="myButton" href="{% url 'precio:precio_crear' %}">Agregar + </a>
+<a class="myButton" href="{% url 'precio:precio_crear' %}" >Agregar + </a>
 <br>
 <h3>Lista de Precios</h3>
 <table class="table table-bordered">
@@ -22,14 +22,14 @@
 		{% if precio %}                 
 		{% for precio in precio %}                 
 		<tr>
-			<td>{{ precio.id }}</td>                    
+			<td>{{ precio.id }}</td>
+			<td>{{ precio.producto.n_comercial }}</td>                    
 			<td>{{ precio.ppack }}</td>                         
 			<td>{{ precio.costo }}</td>                         
 			<td>{{ precio.mayorista }}</td>                         
 			<td>{{ precio.minorista }}</td>                         
 			<td>{{ precio.agencia }}</td>                         
-			<td>{{ precio.lista }}</td>
-			<td>{{ precio.pro_id.n_comercial }}</td>                         
+			<td>{{ precio.lista }}</td>                         
 			<td><a class="myButton" href="{% url 'precio:precio_editar' precio.id %}">Editar</a>
 			    <a class="myButton" href="{% url 'precio:precio_eliminar' precio.id %}">Eliminar</a>                         
 			</td>                 

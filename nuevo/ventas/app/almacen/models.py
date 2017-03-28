@@ -6,3 +6,6 @@ from django.db import models
 class almacen (models.Model):
 	nombre = models.TextField()
 	direccion = models.TextField()
+
+	def __str__(self):                 
+		return '{}'.format(self.nombre)

@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<a class="myButton" href="{% url 'stock:stock_crear' %}">Agregar + </a>
+
+<br>
+<h3>Lista de Stock</h3>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td> ID </td>
+			<td> Producto </td>
+			<td> Almacen </td>
+			<td> Unidad de Medida </td>
+			<td> Cantidad </td>
+			<td> Acciones </td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if stock %}
+		{% for stock in stock %}
+		<tr>
+			<td>{{ stock.id }}</td>
+			<td>{{ stock.producto.n_comercial }}</td>
+			<td>{{ stock.almacen.nombre }}</td>
+			<td>{{ stock.u_medida }}</td>
+			<td>{{ stock.cantidad }}</td>
+			<td><a class="myButton" href="{% url 'stock:stock_editar' stock.id %}">Editar</a>
+			<a class="myButton" href="{% url 'stock:stock_eliminar' stock.id %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+			<h1> No existen registros. </h1>
+		{% endif %}
+	</tbody>
+</table>
+{% endblock %}

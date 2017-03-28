@@ -35,11 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages', 
     'django.contrib.staticfiles',
     'app.producto',
     'app.almacen',
     'app.precio',
+    'app.stock',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'ventas.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'hadas',
 	'USER': 'hadas',
     'PASSWORD': 'hadas2017',

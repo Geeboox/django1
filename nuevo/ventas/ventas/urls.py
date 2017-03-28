@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^producto/', include('app.producto.urls', namespace='producto')),
     url(r'^almacen/', include('app.almacen.urls',namespace='almacen')),
     url(r'^precio/', include('app.precio.urls',namespace='precio')),
+    url(r'^stock/', include('app.stock.urls',namespace='stock')),
 ]

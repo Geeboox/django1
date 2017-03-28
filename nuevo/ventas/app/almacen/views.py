@@ -15,7 +15,7 @@ def almacen_view (request):
 			
 		if form.is_valid():
 			   form.save()
-		return redirect('almacen:index')
+		return redirect('almacen:almacen_listar')
 			
 	else:
 		form = almacenForm()
