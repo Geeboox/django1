@@ -1,74 +1,27 @@
 from django import forms
-
+from datetime import datetime
 from app.producto.models import producto
 
 
 
+class DateInput(forms.DateInput):     
+	input_type = 'date'
+
 class productoForm(forms.ModelForm):
+
+	fecha = forms.DateField()
+	linea = forms.CharField()
+	codigo = forms.CharField()
+	marca = forms.CharField()
+	descripcion = forms.CharField()
+	n_comercial = forms.CharField()
+	imagen = forms.CharField()
+
 
 	class Meta:
 		model=producto
 
-		fields= [
-		'fecha',
-		'linea',
-		'codigo',
-		'marca',
-		'descripcion',
-		'n_comercial',
-		'imagen',
-		]
-		labels = {
-		'fecha':'Fecha',
-                 'linea':'Linea',
-                 'codigo':'Codigo',
-                 'marca':'Marca',
-                'descripcion':'Descripcion',
-                 'n_comercial':'Nombre Comercial',
-                 'imagen':'Imagen',
+		fields= ['fecha','linea','codigo','marca','descripcion','n_comercial','imagen',]
+		widgets = {             
+		'fecha': DateInput()         
 		}
-		widgets = {
-				'fecha':forms.DateInput(attrs={'class':'form-control'}),
-                 'linea':forms.TextInput(attrs={'class':'form-control'}),
-                 'codigo':forms.TextInput(attrs={'class':'form-control'}),
-                 'marca':forms.TextInput(attrs={'class':'form-control'}),
-                'descripcion':forms.TextInput(attrs={'class':'form-control'}),
-                 'n_comercial':forms.TextInput(attrs={'class':'form-control'}),
-                 'imagen':forms.TextInput(attrs={'class':'form-control'}),
-		}
-
-
-
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-			
-		
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
